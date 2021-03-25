@@ -19,3 +19,5 @@ yarn start
 [1]: https://conventionalcomments.org/
 [2]: https://gohugo.io/getting-started/installing/
 [3]: https://classic.yarnpkg.com/en/
+
+Goodbye!
