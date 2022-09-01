@@ -3,3 +3,5 @@ public/
 node_modules/
 _gen/
 .parcel-cache/
+.hugo_build.lock
+yarn.lock

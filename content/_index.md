@@ -1,176 +1,177 @@
 ---
 title: "Conventional Comments"
-description: "Comments that are easy to grok and grep"
+description: "Комментарии, которые легко прочесть и понять"
 ---
 
-Comments like this are unhelpful...
+Подобные комментарии бесполезны...
 {{< comment author="caterpillar" >}}
-This is not worded correctly.
+Эта формулировка не верна.
 {{< /comment >}}
 
-By simply prefixing the comment with a label, the intention is clear and the tone dramatically changes.
+Если просто указать метку комментарию, намерения станут более ясными, а тон сообщения резко изменится.
 {{< comment author="caterpillar" >}}
-**suggestion:** This is not worded correctly.
+**suggestion:** Эта формулировка не верна.
 {{< /comment >}}
 {{< comment author="caterpillar" >}}
-**nitpick (non-blocking):** This is not worded correctly.
+**nitpick (non-blocking):** Эта формулировка не верна.
 {{< /comment >}}
 
-Labels also prompt the reviewer to give more **actionable** comments.
+Метки также побуждают рецензента давать более практичные комментарии.
 {{< comment author="caterpillar" >}}
-**suggestion:** This is not worded correctly.
+**suggestion:** Эта формулировка не верна.
 
-Can we change this to match the wording of the marketing page?
+Можем ли мы изменить это в соответствии с формулировкой маркетинговой страницы?
 {{< /comment >}}
 
-Labeling comments saves **hours** of undercommunication and misunderstandings. They are also parseable by machines!
+Проставление "меток" комментариям экономит **часы** недопониманий и недосказанности. А также их могут разбирать машины!
 
-## Examples
+## Примеры
 
 {{< comment author="alice" >}}
-**suggestion:** Let's avoid using this specific function...
+**suggestion:** Давай избегать использования этой функций...
 
-If we reference much of a function marked "Deprecated", it is almost certain to disagree with us, sooner or later.
+Если мы ссылаемся на часть функции с пометкой "Deprecated", то рано или поздно нам придётся это переписывать.
 {{< /comment >}}
 
 {{< comment author="7ofspades" >}}
-**issue (ux,non-blocking):** These buttons should be red, but let's handle this in a follow-up.
+**issue (ux,non-blocking):** Эти кнопки должны быть красными, но давайте разберемся с этим позже.
 {{< /comment >}}
 
-## Target audience
+## Целевая аудитория
 
-Conventional Comments is a standard for formatting comments of any kind of review/feedback process, such as:
+Conventional Comments - является стандартом для форматирования комментариев любого вида процесса рецензирования / обратной связи, например:
 
-- [Code review](https://en.wikipedia.org/wiki/Code_review)
-- [Peer review](https://en.wikipedia.org/wiki/Peer_review)
-- [Revising](<https://en.wikipedia.org/wiki/Revision_(writing)>) and [editing](https://en.wikipedia.org/wiki/Editing)
-- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments)
+- [Код ревью](https://ru.wikipedia.org/wiki/Code_review)
+- [Рецензирование (Peer Review)](https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)
+- [RFC](https://ru.wikipedia.org/wiki/RFC)
+- [Revising](<https://en.wikipedia.org/wiki/Revision_(writing)>) и [editing](https://en.wikipedia.org/wiki/Editing)
 
-## Format
+## Форматирование
 
-Adhering to a consistent format improves reader's expectations and machine readability.
-Here's the format we propose:
+Соблюдение последовательного формата улучшает ожидания читателя и повышает читабельность для машин.
+Вот формат, который мы предлагаем:
 
 ```
-<label> [decorations]: <subject>
+<метка> [доп. метки]: <тема>
 
-[discussion]
+[дополнения]
 ```
 
-- _label_ - This is a single label that signifies what kind of comment is being left.
-- _subject_ - This is the main message of the comment.
-- _decorations (optional)_ - These are extra decorating labels for the comment. They are surrounded by parentheses and comma-separated.
-- _discussion (optional)_ - This contains supporting statements, context, reasoning, and anything else to help communicate the "why" and "next steps" for resolving the comment.
+- _метка_ - Это метка, обозначающая, какой тип комментария оставлен.
+- _тема_ - Основная суть комментария
+- _доп. метки (по желанию)_ - Это доп. метки для комментариев. Они обёрнута в скобки и должны быть разделены запятыми.
+- _дополнения (по желанию)_ - Здесь содержатся вспомогательные утверждения, контекст, аргументация и все остальное, что поможет донести "почему" и "следующие шаги" для разрешения комментария.
 
-For example:
+Например:
 
 {{< comment author="mouse" >}}
-**question (non-blocking):** At this point, does it matter which thread has won?
+**question (non-blocking):** На данный момент имеет ли значение, какой тред выиграл?
 
-Maybe to prevent a race condition we should keep looping until they've all won?
+Может быть, чтобы предотвратить состояние гонки, мы должны продолжать цикл, пока они все не закончат своё выполнение?
 {{< /comment >}}
 
-Can be automatically parsed into:
+Может быть автоматически превращено в:
 
 ```json
 {
   "label": "question",
-  "subject": "At this point, does it matter which thread has won?",
+  "subject": "На данный момент имеет ли значение, какой тред выиграл?",
   "decorations": ["non-blocking"],
-  "discussion": "Maybe to prevent a race condition we should keep looping until they've all won?"
+  "discussion": "Может быть, чтобы предотвратить состояние гонки, мы должны продолжать цикл, пока они все не закончат своё выполнение?"
 }
 ```
 
-## Labels
+## Метки
 
-We strongly suggest using the following labels:
+Мы настоятельно рекомендуем использовать следующие метки:
 
 |                 |                                                                                                                                                                                                                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **praise:**     | Praises highlight something positive. Try to leave at least one of these comments per review. _Do not_ leave false praise (which can actually be damaging). _Do_ look for something to sincerely praise.                                                                                  |
-| **nitpick:**    | Nitpicks are trivial preference-based requests. These should be non-blocking by nature. |
-| **suggestion:** | Suggestions propose improvements to the current subject. It's important to be explicit and clear on _what_ is being suggested and _why_ it is an improvement. Consider using patches and the _blocking_ or _non-blocking_ [decorations](#decorations) to further communicate your intent. |
-| **issue:**      | Issues highlight specific problems with the subject under review. These problems can be user-facing or behind the scenes. It is strongly recommended to pair this comment with a `suggestion`. If you are not sure if a problem exists or not, consider leaving a `question`.             |
-| **todo:**       | TODO's are small, trivial, but necessary changes. Distinguishing todo comments from issues: or suggestions: helps direct the reader's attention to comments requiring more involvement. |
-| **question:**   | Questions are appropriate if you have a potential concern but are not quite sure if it's relevant or not. Asking the author for clarification or investigation can lead to a quick resolution.                                                                                            |
-| **thought:**    | Thoughts represent an idea that popped up from reviewing. These comments are non-blocking by nature, but they are extremely valuable and can lead to more focused initiatives and mentoring opportunities.                                                                                |
-| **chore:**      | Chores are simple tasks that must be done before the subject can be "officially" accepted. Usually, these comments reference some common process. Try to leave a link to the process description so that the reader knows how to resolve the chore.                                       |
+| **praise:**     | Похвала подчеркивает что-то положительное. Постарайтесь оставить хотя бы один такой комментарий в рамках рецензии. _Не оставляйте_ фальшивых похвал (это может привести к серьезным последствиям). _Старайтесь_ найти действительно что-то, что достойно похвалы.                                                                                  |
+| **nitpick:**    | Придирки - это тривиальные запросы, основанные на предпочтениях. Они должны быть неблокирующими. |
+| **suggestion:** | Предложения - как ни странно предлагают различные улучшения. Важно четко и ясно представлять, что предлагается и почему это является улучшением. Рассмотрите возможность использования патчей, _blocking_ или _non-blocking_ доп. меток для дальнейшего информирования о ваших намерениях. |
+| **issue:**      | Вопросы освещают конкретные проблемы, связанные с рассматриваемым предметом. Эти проблемы могут возникать как непосредственно у пользователя, так и за кулисами. Настоятельно рекомендуется соединить этот комментарий с `suggestion`. Если вы не уверены, существует ли проблема или нет, подумайте о том, чтобы оставить `question`.             |
+| **todo:**       | TODO - это небольшие, тривиальные, но необходимые изменения. Важно отличать такие комментарии от проблем или предложений. В любом случае стоит направить внимание читателя на комментарии, требующие большего участия. |
+| **question:**   | Вопросы уместны, если у вас есть потенциальное беспокойство, но вы не совсем уверены, уместно оно или нет. Обращение к автору за разъяснениями или расследованием может привести к быстрому разрешению проблемы.                                                                                            |
+| **thought:**    | Мысли представляют собой идею, которая возникла в результате рецензирования. Эти комментарии не являются блокирующими по своей природе, но они чрезвычайно ценны и могут сформировать новую точку зрения у читателя.                                                                                |
+| **chore:**      | Это рутиные задания, которые необходимо выполнить, прежде чем предмет рецензии будет принят "официально". Обычно эти комментарии ссылаются на какой-то общий процесс. Постарайтесь оставить ссылку на описание процесса, чтобы читатель знал, как решить эту задачу.                                      |
 
-If you like to be a bit more expressive with your labels, you may also consider:
+Если вы хотите быть немного более выразительными со своими метками, вы также можете рассмотреть:
 
 |    |    |
 |----|----|
-| **typo:** | Typo comments are like **todo:**, where the main issue is a mispelling. |
-| **polish:** | Polish comments are like a **suggestion**, where there is nothing necessarily wrong with the relevant content, there's just some ways to immediately improve the quality. |
-| **quibble:** | Quibbles are very much like **nitpick:**, except it does not conjure up images of lice and animal hygiene practices. |
+| **typo:** | Комментарии с опечатками похожи на **todo:**, но основной проблемой является орфографическая ошибка. |
+| **polish:** | "Полировочные" комментарии похожи на **suggestion:**, где в контенте нет ничего плохого, просто есть несколько способов улучшить качество. |
+| **quibble:** | Комментарии очень похожи на **nitpick:**, за исключением того, что они не вызывают ненавсити или желания придушить рецензента. |
 
-Feel free to diverge from this specific list of labels if it seems appropriate.
+Не стесняйтесь отклоняться от этого списка меток, если это кажется уместным.
 
-## Decorations
+## Дополнительные метки
 
-Decorations give additional context for a comment. They help further classify comments which have the same label (for example, a security suggestion as opposed to a test suggestion).
+Такие метки дают дополнительный контекст комментарию. Они помогают дополнительно классифицировать комментарии, которые имеют одну и ту же метку (например, предложение по безопасности в отличие от предложения по тестированию).
 
 {{< comment author="ccat" >}}
-**suggestion (security):** I'm a bit concerned that we are implementing our own DOM purifying function here...
+**suggestion (security):** Я немного обеспокоен тем, что мы реализуем здесь нашу собственную функциональность очистки DOM...
 
-Could we consider using the framework instead?
+Может рассмотрим возможность использования фреймворка вместо этого?
 {{< /comment >}}
 
 {{< comment author="ccat" >}}
-**suggestion (test,if-minor):** It looks like we're missing some unit test coverage that the cat disappears completely.
+**suggestion (test,if-minor):** Кажется, здесь нам нехватает теста, чтобы наше покрытие не расходилось.
+
 {{< /comment >}}
 
-Decorations may be specific to each organization. If needed, we recommend establishing a minimal set of decorations (leaving room for discretion) with no ambiguity.
+Дополнительные метки могут разница от компании к компании. Если это нужно, мы рекомендуем стабильно использовать этот набор доп. меток (оставляем на ваше усмотрение)
 
-Possible decorations include:
+Сюда входят:
 
 |                    |                                                                                                                                                                                                         |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **(non-blocking)** | A comment with this decoration **should not** prevent the subject under review from being accepted. This is helpful for organizations that consider comments blocking by default.                       |
-| **(blocking)**     | A comment with this decoration **should** prevent the subject under review from being accepted, until it is resolved. This is helpful for organizations that consider comments non-blocking by default. |
-| **(if-minor)**     | This decoration gives some freedom to the author that they should resolve the comment only if the changes ends up being minor or trivial.                                                               |
+| **(non-blocking)** | Комментарий с такой меткой **не должен** препятствовать принятию рассматриваемой темы. Это полезно для команд, которые считают комментарии - по умолчанию блокирующими.                       |
+| **(blocking)**     | Комментарий с такой меткой **должен** препятствовать принятию рассматриваемой темы до тех пор, пока она не будет решена. Это полезно для команд, которые считают комментарии - по умолчанию неблокирующими. |
+| **(if-minor)**     | Эта метка дает некоторую свободу автору в том, что он должен разрешить комментарий только в том случае, если изменения окажутся незначительными или тривиальными.                                                               |
 
-Adding a decoration to a comment should improve understandability and maintain readability. Having a list of many decorations in one comment would conflict with this goal.
+Добавление дополнительных меток в комментарии должны улучшить читабельность. Наличие списка из множества обычных меток в одном комментарии противоречило бы этой цели.
 
-## More examples
+## Больше примеров
 
 {{< comment author="hatter" >}}
-**nitpick:** `little star` => `little bat`
+**nitpick:** `little star` => `little capybara`
 
-Can we update the other references as well?
+Можем ли мы обновить и другие похожие повторения?
 {{< /comment >}}
 
 {{< comment author="alice" >}}
-**chore:** Let's run the `jabber-walk` CI job to make sure this doesn't break any known references.
+**chore:** Давай запустим `jabber-walk`, чтобы быть уверенными, что мы не отломали уже известные сценарии.
 
-Here are [the docs](https://en.wikipedia.org/wiki/Jabberwocky) for running this job. Feel free to reach out if you need any help!
+Вот [документация](https://en.wikipedia.org/wiki/Jabberwocky) для запуска этой джобы. Не стесняйтесь обращаться, если тебе нужна будет какая-либо помощь!
 {{< /comment >}}
 
 {{< comment author="ccat" >}}
-**praise:** Beautiful test!
+**praise:** Прекрасный тест!
 {{< /comment >}}
 
-## Best Practices
+## Лучшие практики
 
-These will be expanded later, but for now, here are some best practices for writing helpful review feedback:
+Они будут расширены позже, а пока приведем несколько рекомендаций по написанию полезных отзывов:
 
-- Mentoring pays off exponentially
-- Leave actionable comments
-- Combine similar comments
-- Replace "you" with "we"
-- Replace "should" with "could"
+- Рецензирование окупается в геометрической прогрессии
+- Оставляйте полезные комментарии
+- Объединяйте похожие комментарии
+- Заменяйте "вы" на "мы".
+- Заменяйте "должен" на "мог бы"
 
-## Want to help make this better?
+## Хотите сделать этот проект лучше?
 
-Check out the [GitLab project](https://gitlab.com/conventionalcomments/conventionalcomments.gitlab.io) for this site.
-Issues and Merge Requests are welcome!
+Привет! Здесь должна была быть ссылка на оригинальный репозиторий проекта, кстати вот [она](https://gitlab.com/conventionalcomments/conventionalcomments.gitlab.io).
+Однако если вы хотите помочь с переводом или обновлением этой страницы, можно заводить пулл реквесты в [этот репозиторий](https://github.com/kotrikd/conventionalcomments-ru). Я постараюсь в краткие сроки рассмотреть ваш реквест!
 
-## Prior art
+## Также известные техники
 
 - [Conventional Commits](https://www.conventionalcommits.org)
 - [Google Engineering Practices](https://github.com/google/eng-practices/blob/57c895ad4b09c8941288c04e44a08797b76b4d4d/review/reviewer/standard.md#mentoring)
 
-The characters used in the examples are respectfully adapted from Lewis Carroll's [Alice in Wonderland][alice], illustrated by [John Tenniel][jtenniel].
+Персонажи, используемые в примерах, с уважением адаптированы из книги Льюиса Кэрролла [Алиса в стране чудес][alice], проиллюстрированные [Джоном Тенниелом][jtenniel].
 
-[alice]: https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland
-[jtenniel]: https://en.wikipedia.org/wiki/John_Tenniel
+[alice]: https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B8%D1%81%D0%B0_%D0%B2_%D0%A1%D1%82%D1%80%D0%B0%D0%BD%D0%B5_%D1%87%D1%83%D0%B4%D0%B5%D1%81
+[jtenniel]: https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BD%D0%BD%D0%B8%D0%B5%D0%BB,_%D0%94%D0%B6%D0%BE%D0%BD

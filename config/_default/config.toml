@@ -3,7 +3,7 @@ layoutdir     = "layouts"
 publishdir    = "public"
 title = "Conventional Comments"
 
-DefaultContentLanguage = "en"
+DefaultContentLanguage = "ru"
 metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentCodeFences = true
@@ -11,7 +11,7 @@ pygmentCodeFences = true
 disableKinds = ["taxonomy", "taxonomyTerm", "i18n"]
 
 [Params]
-  subtitle = "Comments that are easy to grok and grep"
+  subtitle = "Комментарии, которые легко прочесть и понять "
   logo = "logo.png"
   favicon = "favicon.ico"
   dateFormat = "January 2, 2006"
@@ -19,6 +19,7 @@ disableKinds = ["taxonomy", "taxonomyTerm", "i18n"]
   rss = true
   comments = true
   repository = "https://gitlab.com/conventionalcomments/conventionalcomments.gitlab.io"
+  repositoryRu = "https://github.com/kotrikd/conventionalcomments-ru"
 
 [Author]
   name = "Paul Slaughter"

@@ -2,6 +2,7 @@
   "private": true,
   "devDependencies": {
     "autoprefixer": "^10.2.5",
+    "gh-pages": "^4.0.0",
     "npm-run-all": "^4.1.5",
     "parcel": "^2.0.0-beta.2",
     "postcss": "^8.2.15",
@@ -11,6 +12,8 @@
     "tailwindcss": "^2.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public",
     "build": "run-s build:js build:hugo",
     "start": "run-p dev:js dev:hugo",
     "dev:hugo": "hugo serve",
