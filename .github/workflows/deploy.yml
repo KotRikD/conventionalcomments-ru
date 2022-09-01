@@ -15,7 +15,7 @@ jobs:
         
       - name: Install Deps 🔧
         run: |
-          npm install -g yarn
+          npm install -g yarn hugo
           yarn
       - name: Build App 🔧
         run: |
