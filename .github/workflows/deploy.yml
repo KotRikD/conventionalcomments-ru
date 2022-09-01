@@ -13,9 +13,14 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
         
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.96.0'
+
       - name: Install Deps 🔧
         run: |
-          npm install -g yarn hugo
+          npm install -g yarn
           yarn
       - name: Build App 🔧
         run: |
