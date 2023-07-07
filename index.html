@@ -22,11 +22,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Conventional Comments" />
 
-  <meta name="generator" content="Hugo 0.96.0" />
+  <meta name="generator" content="Hugo 0.62.1" />
   <link rel="canonical" href="https://conventionalcomments.ru/" />
   <link rel="alternate" href="https://conventionalcomments.ru/index.xml" type="application/rss+xml" title="Conventional Comments">
 
-  <link rel="stylesheet" href="/css/main.min.5dee09110b74c5117e8444f695d75e530fdd3f7352dddb4a5b57ff0aa314a603.css" />
+  <link rel="stylesheet" href="/css/main.min.753756129ad99170e4d46dadb6b237dd551621bf9c303ee9efea11e5aca22859.css" />
 </head>
 
   <body>
@@ -120,8 +120,8 @@
 </div>
 
 </p>
-<p>Проставление &ldquo;меток&rdquo; комментариям экономит <strong>часы</strong> недопониманий и недосказанности. А также их могут разбирать машины!</p>
-<h2 id="примеры">Примеры</h2>
+<p>Маркировка комментариев способствует сотрудничеству и экономит <strong>часы</strong> недосказанности и недопонимания. А также их могут читать машины!</p>
+<h2 id="heading">Примеры</h2>
 
 
 <div class="mx-4 my-4">
@@ -158,7 +158,7 @@
 </div>
 
 
-<h2 id="целевая-аудитория">Целевая аудитория</h2>
+<h2 id="-">Целевая аудитория</h2>
 <p>Conventional Comments - является стандартом для форматирования комментариев любого вида процесса рецензирования / обратной связи, например:</p>
 <ul>
 <li><a href="https://ru.wikipedia.org/wiki/Code_review">Код ревью</a></li>
@@ -166,10 +166,10 @@
 <li><a href="https://ru.wikipedia.org/wiki/RFC">RFC</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Revision_(writing)">Revising</a> и <a href="https://en.wikipedia.org/wiki/Editing">editing</a></li>
 </ul>
-<h2 id="форматирование">Форматирование</h2>
+<h2 id="heading-1">Форматирование</h2>
 <p>Соблюдение последовательного формата улучшает ожидания читателя и повышает читабельность для машин.
 Вот формат, который мы предлагаем:</p>
-<pre tabindex="0"><code>&lt;метка&gt; [доп. метки]: &lt;тема&gt;
+<pre><code>&lt;метка&gt; [доп. метки]: &lt;тема&gt;
 
 [дополнения]
 </code></pre><ul>
@@ -199,13 +199,13 @@
 
 
 <p>Может быть автоматически превращено в:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;question&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;На данный момент имеет ли значение, какой тред выиграл?&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;decorations&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;non-blocking&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;discussion&#34;</span><span class="p">:</span> <span class="s2">&#34;Может быть, чтобы предотвратить состояние гонки, мы должны продолжать цикл, пока они все не закончат своё выполнение?&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="метки">Метки</h2>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;question&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;На данный момент имеет ли значение, какой тред выиграл?&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;decorations&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;non-blocking&#34;</span><span class="p">]</span><span class="p">,</span>
+  <span class="nt">&#34;discussion&#34;</span><span class="p">:</span> <span class="s2">&#34;Может быть, чтобы предотвратить состояние гонки, мы должны продолжать цикл, пока они все не закончат своё выполнение?&#34;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="heading-2">Метки</h2>
 <p>Мы настоятельно рекомендуем использовать следующие метки:</p>
 <table>
 <thead>
@@ -247,6 +247,10 @@
 <td><strong>chore:</strong></td>
 <td>Это рутиные задания, которые необходимо выполнить, прежде чем предмет рецензии будет принят &ldquo;официально&rdquo;. Обычно эти комментарии ссылаются на какой-то общий процесс. Постарайтесь оставить ссылку на описание процесса, чтобы читатель знал, как решить эту задачу.</td>
 </tr>
+<tr>
+<td><strong>note:</strong></td>
+<td>Примечания всегда являются неблокирующими и просто подчеркивают то, на что читатель должен обратить внимание.</td>
+</tr>
 </tbody>
 </table>
 <p>Если вы хотите быть немного более выразительными со своими метками, вы также можете рассмотреть:</p>
@@ -273,7 +277,7 @@
 </tbody>
 </table>
 <p>Не стесняйтесь отклоняться от этого списка меток, если это кажется уместным.</p>
-<h2 id="дополнительные-метки">Дополнительные метки</h2>
+<h2 id="--1">Дополнительные метки</h2>
 <p>Такие метки дают дополнительный контекст комментарию. Они помогают дополнительно классифицировать комментарии, которые имеют одну и ту же метку (например, предложение по безопасности в отличие от предложения по тестированию).</p>
 
 
@@ -336,7 +340,7 @@
 </tbody>
 </table>
 <p>Добавление дополнительных меток в комментарии должны улучшить читабельность. Наличие списка из множества обычных меток в одном комментарии противоречило бы этой цели.</p>
-<h2 id="больше-примеров">Больше примеров</h2>
+<h2 id="--2">Больше примеров</h2>
 
 
 <div class="mx-4 my-4">
@@ -392,7 +396,7 @@
 </div>
 
 
-<h2 id="лучшие-практики">Лучшие практики</h2>
+<h2 id="--3">Лучшие практики</h2>
 <p>Они будут расширены позже, а пока приведем несколько рекомендаций по написанию полезных отзывов:</p>
 <ul>
 <li>Рецензирование окупается в геометрической прогрессии</li>
@@ -401,10 +405,10 @@
 <li>Заменяйте &ldquo;вы&rdquo; на &ldquo;мы&rdquo;.</li>
 <li>Заменяйте &ldquo;должен&rdquo; на &ldquo;мог бы&rdquo;</li>
 </ul>
-<h2 id="хотите-сделать-этот-проект-лучше">Хотите сделать этот проект лучше?</h2>
+<h2 id="----">Хотите сделать этот проект лучше?</h2>
 <p>Привет! Здесь должна была быть ссылка на оригинальный репозиторий проекта, кстати вот <a href="https://gitlab.com/conventionalcomments/conventionalcomments.gitlab.io">она</a>.
 Однако если вы хотите помочь с переводом или обновлением этой страницы, можно заводить пулл реквесты в <a href="https://github.com/kotrikd/conventionalcomments-ru">этот репозиторий</a>. Я постараюсь в краткие сроки рассмотреть ваш реквест!</p>
-<h2 id="также-известные-техники">Также известные техники</h2>
+<h2 id="--">Также известные техники</h2>
 <ul>
 <li><a href="https://www.conventionalcommits.org">Conventional Commits</a></li>
 <li><a href="https://github.com/google/eng-practices/blob/57c895ad4b09c8941288c04e44a08797b76b4d4d/review/reviewer/standard.md#mentoring">Google Engineering Practices</a></li>
@@ -429,8 +433,8 @@
 </span></a>
     </div>
     <div class="text-right flex-2">
-      &copy; 2022 <a href="https://souldzin.com">Paul Slaughter</a><br/>
-      &copy; 2022 перевод <a href="https://kotrik.ru">Mikhail Babynichev</a>
+      &copy; 2023 <a href="https://souldzin.com">Paul Slaughter</a><br/>
+      &copy; 2023 перевод <a href="https://kotrik.ru">Mikhail Babynichev</a>
     </div>
   </div>
 </footer>
@@ -458,6 +462,6 @@
 
     
 
-<script type="text/javascript" src="/out/index.min.c123bb3cb5b6c54586a15306a97790b5458c83c0d997daecb4f285d8ddbb3143c3f8ed6973f7c878c45b3e379572963fee3a533e84fd1eea4f1564c1e171e40e.js" integrity="sha512-wSO7PLW2xUWGoVMGqXeQtUWMg8DZl9rstPKF2N27MUPD&#43;O1pc/fIeMRbPjeVcpY/7jpTPoT9HupPFWTB4XHkDg=="></script>
+<script type="text/javascript" src="/out/index.min.e0bea857dcd7a902be573ea7821f1603102230e365af8c5618b063573d44335f20e55f6a60905ffad5dc33a160bcfc8c59e51efe6cef8fe5c22c9b39f98e3dfa.js" integrity="sha512-4L6oV9zXqQK&#43;Vz6ngh8WAxAiMONlr4xWGLBjVz1EM18g5V9qYJBf&#43;tXcM6FgvPyMWeUe/mzvj&#43;XCLJs5&#43;Y49&#43;g=="></script>
   </body>
 </html>
