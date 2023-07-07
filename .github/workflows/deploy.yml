@@ -19,6 +19,11 @@ jobs:
           hugo-version: '0.62.1'
           extended: true
 
+      - name: Install Node.js 🔧
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
       - name: Install Deps 🔧
         run: |
           npm install -g yarn
